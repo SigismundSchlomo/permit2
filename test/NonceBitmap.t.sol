@@ -9,8 +9,8 @@ import {InvalidNonce} from "../src/PermitErrors.sol";
 contract NonceBitmapTest is Test {
     MockPermit2 permit2;
 
-    function setUp() public {
-        permit2 = new MockPermit2();
+    function setUp(uint chainId) public {
+        permit2 = new MockPermit2(chainId);
     }
 
     function testLowNonces() public {

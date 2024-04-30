@@ -18,6 +18,10 @@ contract SignatureTransfer is ISignatureTransfer, EIP712 {
     /// @inheritdoc ISignatureTransfer
     mapping(address => mapping(uint256 => uint256)) public nonceBitmap;
 
+    constructor(uint chainId) {
+        init(chainId);
+    }
+
     /// @inheritdoc ISignatureTransfer
     function permitTransferFrom(
         PermitTransferFrom memory permit,

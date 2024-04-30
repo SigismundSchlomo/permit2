@@ -22,6 +22,10 @@ contract AllowanceTransfer is IAllowanceTransfer, EIP712 {
     /// @dev The stored word saves the allowed amount, expiration on the allowance, and nonce
     mapping(address => mapping(address => mapping(address => PackedAllowance))) public allowance;
 
+    constructor(uint chainId) {
+        init(chainId);
+    }
+
     /// @inheritdoc IAllowanceTransfer
     function approve(address token, address spender, uint160 amount, uint48 expiration) external {
         PackedAllowance storage allowed = allowance[msg.sender][token][spender];

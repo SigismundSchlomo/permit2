@@ -8,4 +8,5 @@ import {AllowanceTransfer} from "./AllowanceTransfer.sol";
 /// @dev Users must approve Permit2 before calling any of the transfer functions.
 contract Permit2 is SignatureTransfer, AllowanceTransfer {
 // Permit2 unifies the two contracts so users have maximal flexibility with their approval.
+    constructor(uint256 chainId) SignatureTransfer(chainId) AllowanceTransfer(chainId) {}
 }

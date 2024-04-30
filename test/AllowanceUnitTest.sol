@@ -12,8 +12,8 @@ contract AllowanceUnitTest is Test, TokenProvider {
     address from = address(0xBEEE);
     address spender = address(0xBBBB);
 
-    function setUp() public {
-        permit2 = new MockPermit2();
+    function setUp(uint chainId) public {
+        permit2 = new MockPermit2(chainId);
         initializeERC20Tokens();
     }
 

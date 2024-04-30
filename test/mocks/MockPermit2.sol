@@ -6,6 +6,9 @@ import {IAllowanceTransfer} from "../../src/interfaces/IAllowanceTransfer.sol";
 import {Allowance} from "../../src/libraries/Allowance.sol";
 
 contract MockPermit2 is Permit2 {
+
+    constructor(uint chainId) Permit2(chainId) {}
+
     function doStore(address from, address token, address spender, uint256 word) public {
         IAllowanceTransfer.PackedAllowance storage allowed = allowance[from][token][spender];
         assembly {

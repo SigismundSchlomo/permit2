@@ -55,8 +55,8 @@ contract AllowanceTransferTest is Test, TokenProvider, PermitSignature, GasSnaps
 
     bytes32 DOMAIN_SEPARATOR;
 
-    function setUp() public {
-        permit2 = new Permit2();
+    function setUp(uint chainId) public {
+        permit2 = new Permit2(chainId);
         DOMAIN_SEPARATOR = permit2.DOMAIN_SEPARATOR();
 
         fromPrivateKey = 0x12341234;

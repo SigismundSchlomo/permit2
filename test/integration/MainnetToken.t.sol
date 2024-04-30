@@ -39,12 +39,12 @@ abstract contract MainnetTokenTest is Test, PermitSignature {
     string constant WITNESS_TYPE_STRING =
         "MockWitness witness)MockWitness(uint256 value,address person,bool test)TokenPermissions(address token,uint256 amount)";
 
-    function setUp() public {
+    function setUp(uint chainId) public {
         vm.createSelectFork(vm.envString("FORK_URL"), 15979000);
 
         fromPrivateKey = 0x12341234;
         from = vm.addr(fromPrivateKey);
-        permit2 = new Permit2();
+        permit2 = new Permit2(chainId);
         DOMAIN_SEPARATOR = permit2.DOMAIN_SEPARATOR();
         EXPIRATION = uint48(block.timestamp + 1000);
 

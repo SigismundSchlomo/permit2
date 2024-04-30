@@ -12,8 +12,8 @@ contract EIP712Test is Test {
 
     Permit2 permit2;
 
-    function setUp() public {
-        permit2 = new Permit2();
+    function setUp(uint chainId) public {
+        permit2 = new Permit2(chainId);
     }
 
     function testDomainSeparator() public {

@@ -82,8 +82,8 @@ contract AllowanceTransferInvariants is StdInvariant, Test {
     Runner runner;
     MockERC20 token;
 
-    function setUp() public {
-        permit2 = new Permit2();
+    function setUp(uint chainId) public {
+        permit2 = new Permit2(chainId);
         runner = new Runner(permit2);
 
         targetContract(address(runner));

@@ -13,7 +13,7 @@ contract DeployPermit2 is Script {
     function run() public returns (Permit2 permit2) {
         vm.startBroadcast();
 
-        permit2 = new Permit2{salt: SALT}();
+        permit2 = new Permit2{salt: SALT}(22040);
         console2.log("Permit2 Deployed:", address(permit2));
 
         vm.stopBroadcast();

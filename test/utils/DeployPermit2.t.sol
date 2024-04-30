@@ -36,8 +36,8 @@ contract DeployPermit2Test is Test, DeployPermit2, PermitSignature, TokenProvide
         setERC20TestTokenApprovals(vm, from, address(permit2));
     }
 
-    function testDeployPermit2() public {
-        Permit2 realPermit2 = new Permit2();
+    function testDeployPermit2(uint chainId) public {
+        Permit2 realPermit2 = new Permit2(chainId);
         // assert bytecode equals
         assertEq(address(permit2).code, address(realPermit2).code);
     }

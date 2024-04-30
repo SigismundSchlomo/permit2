@@ -48,10 +48,10 @@ contract Permit2LibTest is Test, PermitSignature, GasSnapshot {
         new MockPermitWithLargerDS("Mock Permit Token Larger Domain Sep", "MOCK", 18);
     MockNonPermitNonERC20WithDS immutable largerNonStandardDSToken = new MockNonPermitNonERC20WithDS();
 
-    constructor() {
+    constructor(uint chainId) {
         PK = 0xBEEF;
         PK_OWNER = vm.addr(PK);
-        Permit2 tempPermit2 = new Permit2();
+        Permit2 tempPermit2 = new Permit2(chainId);
         vm.etch(address(permit2), address(tempPermit2).code);
         vm.etch(address(weth9Mainnet), address(nonPermitToken).code);
 
