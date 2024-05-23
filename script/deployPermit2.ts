@@ -1,6 +1,6 @@
 import { ethers } from "hardhat";
 
-const chainId = 1;
+const chainId = 22040;
 
 async function main() {
     const artifact = require("../out/Permit2.sol/Permit2.json");
